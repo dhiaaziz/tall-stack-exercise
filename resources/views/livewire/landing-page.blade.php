@@ -1,5 +1,6 @@
 <div class="flex flex-col bg-indigo-900 w-full h-screen" x-data="{
     showSubscribe: false,
+    showSuccess: true,
 }">
     <nav class="flex pt-5 justify-between container mx-auto text-indigo-200">
         <a href="" class="text-3xl font-bold">
@@ -39,6 +40,15 @@
                 <x-button class="px-5 py-3 mt-5 w-80 bg-blue-500 hover:bg-blue-600 justify-center">Get In</x-button>
                 {{-- <h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h1> --}}
             </form>
+        </div>
+    </div>
+    <div class="flex fixed top-0 bg-gray-900 bg-opacity-60 items-center w-full h-full" x-show="showSuccess"
+        x-on:click.self="showSuccess = false" x-on:keydown.escape.window="showSuccess = false">
+        <div class="bg-green-500 m-auto shadow-2xl rounded-xl p-8">
+            <p class="animate-pulse text-white text-9xl font-extrabold text-center">&check;</p>
+            <p class="text-white text-5xl font-extrabold text-center mt-16">Great!</p>
+            <p class="text-white text-3xl font-extrabold text-center">See you on your inbox!</p>
+
         </div>
     </div>
 </div>
