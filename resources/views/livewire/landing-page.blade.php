@@ -33,12 +33,18 @@
         <p class="text-5xl font-extrabold text-center text-white">Let's do it!</p>
         <form action="" class="flex flex-col items-center p-24" wire:submit.prevent="subscribe">
             <x-input class="px-5 py-3 border border-blue-400 w-80" type="email" name="email" placeholder="Email address"
-                wire:model="email"></x-input>
+                wire:model.defer="email"></x-input>
             <span class="mt-1 text-xs text-gray-100">
                 {{ $errors->has('email') ? $errors->first('email') : 'We will send you a confirmation email' }}
 
             </span>
-            <x-button class="justify-center px-5 py-3 mt-5 bg-blue-500 w-80 hover:bg-blue-600">Get In</x-button>
+            <x-button class="justify-center px-5 py-3 mt-5 bg-blue-500 w-80 hover:bg-blue-600">
+                {{-- <span class="animate-spin">&#9994;</span> --}}
+                <span class="animate-spin" wire:loading wire:target="subscribe">&#127759;</span>
+
+                
+                <span wire:loading.remove wire:target="subscribe">Get In</span>
+            </x-button>
             {{-- <h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h1> --}}
         </form>
     </x-modal>

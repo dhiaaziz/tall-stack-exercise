@@ -25,6 +25,8 @@ class LandingPage extends Component
         }
     }
     public function subscribe() {
+        sleep(2);
+
         $this->validate();
         // \Log::debug($this->email);
         DB::transaction(function () {
